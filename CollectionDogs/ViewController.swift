@@ -34,13 +34,18 @@ class ViewController: UIViewController {
                                                           item: secondItem,
                                                           count: 2)
 //        group
-        let group = CompositionLayout.createGroup(alignment: .horizontal,
-                                                  width: .fractionalWidth(1),
-                                                  height: .fractionalHeight(0.3),
+        let horizontalGroup = CompositionLayout.createGroup(alignment: .horizontal,
+                                                            width: .fractionalHeight(1),
+                                                  height: .fractionalHeight(0.6),
                                                   items: [item, verticalGruop])
-                                                                             
+        
+        let mainItem = CompositionLayout.createItem(width: .fractionalWidth(1),
+                                                    height: .fractionalHeight(0.4),
+                                                spacing: 1)
+        
+        let mainGroup = CompositionLayout.createGroup(alignment: .vertical, width: .fractionalWidth(1), height: .fractionalHeight(0.5), items: [mainItem, horizontalGroup])
 //        section
-        let section = NSCollectionLayoutSection(group: group)
+        let section = NSCollectionLayoutSection(group: mainGroup)
         
         return UICollectionViewCompositionalLayout(section: section)
         
