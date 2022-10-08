@@ -18,21 +18,22 @@ class ViewController: UIViewController {
         
     }
     private func createLayout()-> UICollectionViewCompositionalLayout {
+        
 //        item width.fractionalWidth 0.5 половина ширины экраны группы, .fractionalHeight(1) высота предмета в группе
         let item = CompositionLayout.createItem(width: .fractionalWidth(0.5),
                                                 height: .fractionalHeight(1),
                                                 spacing: 1)
         
-        let fullItem = CompositionLayout.createItem(width: .fractionalWidth(1),
+        let secondItem = CompositionLayout.createItem(width: .fractionalWidth(1),
                                                     height: .fractionalHeight(1),
                                                     spacing: 1)
-//        group
+//        вертикальная group в основной группе
         let verticalGruop = CompositionLayout.createGroup(alignment: .vertical,
                                                           width: .fractionalWidth(0.5),
                                                           height: .fractionalHeight(1),
-                                                          item: fullItem,
+                                                          item: secondItem,
                                                           count: 2)
-        
+//        group
         let group = CompositionLayout.createGroup(alignment: .horizontal,
                                                   width: .fractionalWidth(1),
                                                   height: .fractionalHeight(0.3),
